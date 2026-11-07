@@ -4,11 +4,19 @@ S.T.A.L.K.E.R. 2 mod that removes the automatic reload. Pulling the trigger on a
 magazine plays the dry-fire click. The game already does this when you have no ammo for the
 weapon. Press Reload to reload. Reloading early and the +1 chamber reload are unchanged.
 
-Requires UE4SS. Install `main.dll` to `Stalker2/Binaries/Win64/ue4ss/Mods/ManualReload/dlls/`
-and add an empty `enabled.txt` in `Mods/ManualReload/`.
+## Installing
 
-Each launch writes `Mods/ManualReload/dlls/ManualReload.log` with the result. If the patch
-fails for any reason, the game is left untouched and auto-reload works as in vanilla.
+The same DLL works with either loader. Install only one copy.
+
+- **UE4SS:** put `main.dll` in `Stalker2/Binaries/Win64/ue4ss/Mods/ManualReload/dlls/` and add an
+  empty `enabled.txt` in `Mods/ManualReload/`.
+- **Ultimate ASI Loader:** rename `main.dll` to `ManualReload.asi` and put it in
+  `Stalker2/Binaries/Win64/`. If no other mod has installed the loader, get the x64 build from
+  [its releases](https://github.com/ThirteenAG/Ultimate-ASI-Loader/releases) and install it as
+  `dsound.dll` in the same folder.
+
+Each launch writes `ManualReload.log` next to the DLL with the result. If the patch fails for
+any reason, the game is left untouched and auto-reload works as in vanilla.
 
 ## What it patches
 

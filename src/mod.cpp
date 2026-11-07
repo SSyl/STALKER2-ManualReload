@@ -54,12 +54,20 @@ namespace
     }
 }
 
-// UE4SS treats a null mod object as "not started" and skips every later callback, so the
-// mod needs no UE4SS headers.
+// UE4SS entry point (Mods/ManualReload/dlls/main.dll). UE4SS refuses a C++ mod without both
+// lifecycle exports. A null mod object counts as "not started" and UE4SS skips every later
+// callback, so the mod needs no UE4SS headers.
 extern "C" __declspec(dllexport) void* start_mod()
 {
     Run();
     return nullptr;
+}
+
+// Ultimate ASI Loader entry point (same file renamed to ManualReload.asi), called outside the
+// loader lock right after LoadLibrary.
+extern "C" __declspec(dllexport) void InitializeASI()
+{
+    Run();
 }
 
 extern "C" __declspec(dllexport) void uninstall_mod(void*)
